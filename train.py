@@ -13,10 +13,10 @@ import torch.nn as nn
 #  Hiperparámetros
 ENV_ID = "Acrobot-v1"
 SEED = 42
-EPISODES = 300 # Cuántas partidas juega el agente para aprender.
+EPISODES = 500 # Cuántas partidas juega el agente para aprender.
 GAMMA = 0.99 # Cuánto valora el futuro frente al presente.
 # En este caso nos sirve bastante este GAMMA alto porque el objetivo es llegar a la meta (pendulo arriba) y eso requiere varios pasos.
-LR = 1e-3
+LR = 5e-4
 BATCH_SIZE = 64 # Cuántas experiencias usa en cada actualización. 
 # Esto quiere decir que cada 64 pasos de entrenamiento, el agente hace un paso de aprendizaje (backpropagation) usando esas 64 experiencias.
 

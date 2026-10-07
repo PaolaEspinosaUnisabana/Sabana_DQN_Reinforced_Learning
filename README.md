@@ -49,7 +49,7 @@ Es importante añadir que solo la articulación central tiene actuador, por lo q
 
 - Replay buffer (50 000), red objetivo (copia cada 500 pasos), epsilon-greedy lineal 1.0 -> 0.05 en 15 000 pasos.
 - Cada 10 episodios se evalúa la política greedy (5 episodios) y se guarda el mejor checkpoint.
-- Adam (lr 1e-3), γ = 0.99, batch 64, pérdida Huber, 300 episodios, semilla 42.
+- Adam (lr 1e-3), γ = 0.99, batch 64, pérdida Huber, 500 episodios, semilla 42.
 - Solo `terminated` corta el bootstrap. `truncated` no se trata como estado final.
 
 ## Uso
@@ -69,8 +69,8 @@ Evaluación con `evaluate.py` (20 episodios, política greedy, semillas distinta
 
 | Métrica | Valor |
 |---|---|
-| Recompensa media | -77.5 ± 6.7 |
-| Mín / Máx | -90 / -63 |
+| Recompensa media | -82 ± 10.3 |
+| Mín / Máx | -107 / -68 |
 
 **Nota:** Vemos que DQN es inestable en Acrobot. Durante el entrenamiento la política greedy oscila entre buenos resultados y -500 entre un checkpoint y otro. Por eso `train.py` evalúa cada 10 episodios y **guarda el mejor modelo**, no el último.
 
